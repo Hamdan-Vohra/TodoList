@@ -1,0 +1,46 @@
+{
+  "todos": [
+    {
+      "userId": 1,
+      "id": "1",
+      "title": "vero rerum temporibus dolor",
+      "completed": true
+    },
+    {
+      "userId": 1,
+      "id": "2",
+      "title": "repellendus sunt dolores architecto voluptatum",
+      "completed": true
+    },
+    {
+      "userId": 1,
+      "id": "3",
+      "title": "ab voluptatum amet voluptas",
+      "completed": true
+    },
+    {
+      "userId": 1,
+      "id": "4",
+      "title": "accusamus eos facilis sint et aut voluptatem",
+      "completed": true
+    },
+    {
+      "userId": 1,
+      "id": "5",
+      "title": "quo laboriosam deleniti aut qui",
+      "completed": true
+    },
+    {
+      "userId": 1,
+      "id": "6",
+      "title": "dolorum est consequatur ea mollitia in culpa",
+      "completed": false
+    },
+    {
+      "id": "fd9e",
+      "userId": 1,
+      "title": "New Stuff!!",
+      "completed": false
+    }
+  ]
+}

@@ -1,14 +1,26 @@
-// add imports
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faTrash, faUpload } from '@fortawesome/free-solid-svg-icons'
+import { faUpload } from '@fortawesome/free-solid-svg-icons'
 import { useState } from "react"
+
+import { useGetTodosQuery, usePostTodoMutation} from '../api/apiSlice'
+import TodoExcerpt from './TodoExcerpt'
 
 const TodoList = () => {
     const [newTodo, setNewTodo] = useState('')
 
+    const {
+        data:todos,
+        isLoading,
+        isSuccess,
+        isError,
+        error
+    } = useGetTodosQuery();
+
+    const [postTodo] = usePostTodoMutation();
+
     const handleSubmit = (e) => {
         e.preventDefault();
-        //addTodo
+        postTodo({userId:1,title:newTodo,completed:false});
         setNewTodo('')
     }
 
@@ -21,7 +33,7 @@ const TodoList = () => {
                     id="new-todo"
                     value={newTodo}
                     onChange={(e) => setNewTodo(e.target.value)}
-                    placeholder="Enter new todo"
+                    placeholder="Enter new todo:"
                 />
             </div>
             <button className="submit">
@@ -31,7 +43,13 @@ const TodoList = () => {
 
 
     let content;
-    // Define conditional content
+    if(isLoading){
+        content = <p>Loading...</p>
+    } else if(isSuccess){
+        content = todos.map(todo =><TodoExcerpt key={todo.id} todo={todo}/>);
+    } else if(isError){
+        content = <p>{error}</p>
+    }
 
     return (
         <main>
